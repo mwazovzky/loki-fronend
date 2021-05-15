@@ -1,6 +1,8 @@
 <template>
   <div class="user-card">
-    <div>{{ user.id }}</div>
+    <div>
+      <a :href="href" @click.prevent="$emit('show')">{{ user.id }}</a>
+    </div>
     <div>{{ user.name }}</div>
     <div>{{ user.email }}</div>
   </div>
@@ -11,6 +13,11 @@ export default {
   name: "Card",
   props: {
     user: { type: Object, required: true },
+  },
+  computed: {
+    href() {
+      return `/users/${this.user.id}`;
+    },
   },
 };
 </script>

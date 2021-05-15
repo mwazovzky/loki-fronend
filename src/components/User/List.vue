@@ -1,7 +1,12 @@
 <template>
   <div class="users-index">
-    <h2>Users Index</h2>
-    <UserCard class="mt-2" v-for="user in users" :key="user.id" :user="user" />
+    <UserCard
+      class="mt-2"
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+      @show="$emit('show', user.id)"
+    />
   </div>
 </template>
 
@@ -9,7 +14,7 @@
 import UserCard from "@/components/User/Card";
 
 export default {
-  name: "Index",
+  name: "List",
   components: {
     UserCard,
   },

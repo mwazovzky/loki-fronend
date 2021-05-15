@@ -1,19 +1,19 @@
 <template>
   <div class="users">
-    <h1>Users</h1>
-    <UserIndex :users="users" />
+    <h1>User Index</h1>
+    <UserList :users="users" @show="showUser" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import UserIndex from "@/components/User/Index.vue";
+import UserList from "@/components/User/List.vue";
 const host = "http://localhost:3000";
 
 export default {
-  name: "Users",
+  name: "UserIndex",
   components: {
-    UserIndex,
+    UserList,
   },
   data() {
     return {
@@ -24,6 +24,11 @@ export default {
     axios.get(`${host}/api/users`).then((res) => {
       this.users = res.data;
     });
+  },
+  methods: {
+    showUser(id) {
+      this.$router.push({ name: "UserShow", params: { id } });
+    },
   },
 };
 </script>
