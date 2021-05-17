@@ -6,9 +6,7 @@
 </template>
 
 <script>
-import axios from "axios";
 import UserList from "@/components/User/List.vue";
-const host = "http://localhost:3000";
 
 export default {
   name: "UserIndex",
@@ -21,7 +19,7 @@ export default {
     };
   },
   created() {
-    axios.get(`${host}/api/users`).then((res) => {
+    this.$http.get("users").then((res) => {
       this.users = res.data;
     });
   },
@@ -32,3 +30,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.mt-2 {
+  margin-top: 8px;
+}
+.btn {
+  padding: 4px 8px;
+  background-color: #42b983;
+  color: #ffffff;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 4px;
+}
+</style>

@@ -6,9 +6,7 @@
 </template>
 
 <script>
-import axios from "axios";
 import UserPage from "@/components/User/Page.vue";
-const host = "http://localhost:3000";
 
 export default {
   name: "UserShow",
@@ -24,7 +22,7 @@ export default {
     };
   },
   created() {
-    axios.get(`${host}/api/users/${this.id}`).then((res) => {
+    this.$http.get(`users/${this.id}`).then((res) => {
       this.user = res.data;
     });
   },
