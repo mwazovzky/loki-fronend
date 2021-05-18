@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import UserIndex from "../views/User/Index.vue";
 import UserShow from "../views/User/Show.vue";
+import UserEdit from "../views/User/Edit.vue";
 
 const routes = [
   {
@@ -18,6 +19,12 @@ const routes = [
     path: "/users/:id",
     name: "UserShow",
     component: UserShow,
+    props: true,
+  },
+  {
+    path: "/users/:id/edit",
+    name: "UserEdit",
+    component: UserEdit,
     props: true,
   },
   {

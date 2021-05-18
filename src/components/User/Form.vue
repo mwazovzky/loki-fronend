@@ -14,7 +14,7 @@
         <input type="text" placeholder="password" v-model="form.password" />
       </div>
       <div class="form-element">
-        <button class="btn" @click="submit">Create</button>
+        <button class="btn" @click="submit">{{ action }}</button>
       </div>
     </form>
   </div>
@@ -26,6 +26,7 @@ export default {
   inheritAttrs: false,
   props: {
     user: { type: Object, required: true },
+    action: { type: String, default: "Save" },
   },
   data() {
     return {

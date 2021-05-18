@@ -1,8 +1,14 @@
 <template>
   <div class="users">
     <h1>User Index</h1>
-    <UserList :users="users" @show="showUser" @delete="deleteUser" />
+    <UserList
+      :users="users"
+      @show="showUser"
+      @edit="editUser"
+      @delete="deleteUser"
+    />
     <div class="mt-2">
+      <h2>Create User</h2>
       <UserForm v-model:user="newUser" @submit="createUser" />
     </div>
   </div>
@@ -34,13 +40,16 @@ export default {
     });
   },
   methods: {
-    showUser(id) {
-      this.$router.push({ name: "UserShow", params: { id } });
-    },
     createUser(payload) {
       this.$http.post("users", payload).then((res) => {
         this.users.push(res.data);
       });
+    },
+    showUser(id) {
+      this.$router.push({ name: "UserShow", params: { id } });
+    },
+    editUser(id) {
+      this.$router.push({ name: "UserEdit", params: { id } });
     },
     deleteUser(id) {
       this.$http.delete(`users/${id}`).then(() => {

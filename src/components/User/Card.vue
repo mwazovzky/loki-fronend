@@ -9,6 +9,9 @@
       <button class="btn-show" @click.prevent="$emit('show')">
         <i class="fas fa-eye"></i>
       </button>
+      <button class="btn-edit ml-2" @click.prevent="$emit('edit')">
+        <i class="fas fa-edit"></i>
+      </button>
       <button class="btn-delete ml-2" @click.prevent="$emit('delete')">
         <i class="icon fas fa-trash-alt"></i>
       </button>
