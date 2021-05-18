@@ -6,6 +6,7 @@
       :key="user.id"
       :user="user"
       @show="$emit('show', user.id)"
+      @delete="$emit('delete', user.id)"
     />
   </div>
 </template>

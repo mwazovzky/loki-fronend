@@ -5,6 +5,14 @@
     </div>
     <div>{{ user.name }}</div>
     <div>{{ user.email }}</div>
+    <div>
+      <button class="btn-show" @click.prevent="$emit('show')">
+        <i class="fas fa-eye"></i>
+      </button>
+      <button class="btn-delete ml-2" @click.prevent="$emit('delete')">
+        <i class="icon fas fa-trash-alt"></i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -23,6 +31,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$colorDanger: #e3342f;
+$colorPrimary: #3490dc;
+
 .user-card {
   width: 100%;
   display: flex;
@@ -31,5 +42,22 @@ export default {
   & > div {
     padding: 8px;
   }
+}
+.ml-2 {
+  margin-left: 8px;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.btn-show {
+  color: $colorPrimary;
+}
+.btn-delete {
+  color: $colorDanger;
 }
 </style>

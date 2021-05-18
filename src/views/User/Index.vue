@@ -1,7 +1,7 @@
 <template>
   <div class="users">
     <h1>User Index</h1>
-    <UserList :users="users" @show="showUser" />
+    <UserList :users="users" @show="showUser" @delete="deleteUser" />
     <div class="mt-2">
       <UserForm v-model:user="newUser" @submit="createUser" />
     </div>
@@ -40,6 +40,12 @@ export default {
     createUser(payload) {
       this.$http.post("users", payload).then((res) => {
         this.users.push(res.data);
+      });
+    },
+    deleteUser(id) {
+      this.$http.delete(`users/${id}`).then(() => {
+        const index = this.users.findIndex((item) => item.id == id);
+        this.users.splice(index, 1);
       });
     },
   },
