@@ -5,6 +5,7 @@
     </div>
     <div>{{ user.name }}</div>
     <div>{{ user.email }}</div>
+    <div>{{ user.password }}</div>
     <div>
       <button class="btn-show" @click.prevent="$emit('show')">
         <i class="fas fa-eye"></i>
