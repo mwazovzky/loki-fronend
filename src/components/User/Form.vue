@@ -38,15 +38,17 @@ export default {
     };
   },
   created() {
-    Object.keys(this.form).forEach((key) => (this.form[key] = this.user[key]));
+    this.reset();
   },
   methods: {
     submit() {
       this.$emit("submit", this.form);
-      this.clear();
+      this.reset();
     },
-    clear() {
-      Object.keys(this.form).forEach((key) => (this.form[key] = ""));
+    reset() {
+      Object.keys(this.form).forEach(
+        (key) => (this.form[key] = this.user[key])
+      );
     },
   },
 };
