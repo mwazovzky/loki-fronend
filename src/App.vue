@@ -3,11 +3,22 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/users">Users</router-link> |
     <router-link to="/login">Login</router-link> |
+    <Logout /> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
 </template>
+
+<script>
+import Logout from "@/components/Auth/Logout"
+
+export default {
+  components: {
+    Logout
+  }
+}
+</script>
 
 
 <style lang="scss">
