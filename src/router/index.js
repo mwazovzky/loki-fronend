@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import UserIndex from "../views/User/Index.vue";
 import UserShow from "../views/User/Show.vue";
 import UserEdit from "../views/User/Edit.vue";
+import Register from "../views/Auth/Register.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: "UserEdit",
     component: UserEdit,
     props: true,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
   },
   {
     path: "/about",
