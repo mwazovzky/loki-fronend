@@ -1,5 +1,6 @@
 <template>
   <div id="nav">
+    <HelloUser v-if="user" :username="name"/>
     <router-link to="/">Home</router-link> |
     <router-link to="/users">Users</router-link> |
     <router-link to="/login">Login</router-link> |
@@ -11,15 +12,23 @@
 </template>
 
 <script>
+import HelloUser from "@/components/Auth/HelloUser"
 import Logout from "@/components/Auth/Logout"
+import { mapGetters } from "vuex"
 
 export default {
   components: {
-    Logout
+    HelloUser,
+    Logout,
+  },
+  computed: {
+    ...mapGetters({ user: "auth/user" }),
+    name() {
+      return this.user.name
+    }
   }
 }
 </script>
-
 
 <style lang="scss">
 #app {

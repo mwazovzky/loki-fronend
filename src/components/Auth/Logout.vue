@@ -3,12 +3,14 @@
 </template>
 
 <script>
+import { mapActions } from "vuex"
+
 export default {
   methods: {
+    ...mapActions({ authLogout: "auth/logout" }),
     logout() {
-      this.$http.post("logout")
-        .catch((err) => console.error(err.response))
-      }
-    }
+      this.authLogout()
+    },
+  },
 }
 </script>

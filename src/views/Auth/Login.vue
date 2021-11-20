@@ -20,6 +20,7 @@
 
 <script>
 import Error from "@/components/UI/Error"
+import { mapActions } from "vuex"
 
 export default {
   name: "Register",
@@ -37,10 +38,15 @@ export default {
     };
   },
   methods: {
+    ...mapActions({ authLogin: "auth/login" }),
+
     submit() {
         this.clearError()
         this.$http.post("login", this.form)
-          .then(() => this.$router.push({ name: "Home"})) 
+          .then(({data}) => {
+            this.authLogin(data)
+            this.$router.push({ name: "Home"})
+          }) 
           .catch((err) => this.handleError(err.response)) 
     },
     handleError(err) {
