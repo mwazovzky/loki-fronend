@@ -2,6 +2,7 @@
   <div id="nav">
     <HelloUser v-if="user" :username="name"/>
     <router-link to="/">Home</router-link> |
+    <router-link to="/dashboard">Dashboard</router-link> |
     <router-link to="/users">Users</router-link> |
     <router-link to="/login">Login</router-link> |
     <Logout /> |
