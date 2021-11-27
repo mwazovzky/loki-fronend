@@ -28,7 +28,7 @@ export default {
 
     logout: ({ commit }) => new Promise(resolve => {
       Cookies.remove("user")
-      commit("SET_USER")
+      commit("SET_USER", null)
       resolve()
     }),
   },

@@ -9,7 +9,9 @@ export default {
   methods: {
     ...mapActions({ authLogout: "auth/logout" }),
     logout() {
-      this.authLogout()
+      this.$http.post("logout")
+          .then(() => this.authLogout())
+          .then(() => this.$router.push({"name": "Home"}))
     },
   },
 }
