@@ -10,17 +10,20 @@
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
+  <Snackbar class="mt-2"/>
 </template>
 
 <script>
 import HelloUser from "@/components/Auth/HelloUser"
 import Logout from "@/components/Auth/Logout"
+import Snackbar from "@/components/Snackbar"
 import { mapGetters } from "vuex"
 
 export default {
   components: {
     HelloUser,
     Logout,
+    Snackbar,
   },
   computed: {
     ...mapGetters({ user: "auth/user" }),
@@ -51,5 +54,9 @@ export default {
       color: #42b983;
     }
   }
+}
+
+.mt-2 {
+  margin-top: 8px;
 }
 </style>
